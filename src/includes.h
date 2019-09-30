@@ -2,7 +2,9 @@
 #include "variables.h"
 
 // Support functions
-#include "addglitter.h"
+#include "add_glitter.h"
+#include "clear_all.h"
+#include "fill_solid_all.h"
 
 // Display routines
 #include "rainbow_march.h"

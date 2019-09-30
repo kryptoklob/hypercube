@@ -11,6 +11,7 @@ void setup() {
 
   Useful static variables:
     - NUM_LEDS_FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}
+    - NUM_LEDS_FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_SIDE_{ONE,TWO,THREE,FOUR}
     -
 
 
@@ -18,12 +19,12 @@ void setup() {
 
 
   // -- Six strips of LEDS, each nominally 240 leds (but slightly less) -------------------- //
-	FastLED.addLeds<LED_TYPE, LED_PIN_ONE, COLOR_ORDER>(leds, NUM_LEDS_FACE_ONE);
-  FastLED.addLeds<LED_TYPE, LED_PIN_TWO, COLOR_ORDER>(leds, NUM_LEDS_FACE_TWO);
-	FastLED.addLeds<LED_TYPE, LED_PIN_THREE, COLOR_ORDER>(leds, NUM_LEDS_FACE_THREE);
-	FastLED.addLeds<LED_TYPE, LED_PIN_FOUR, COLOR_ORDER>(leds, NUM_LEDS_FACE_FOUR);
-	FastLED.addLeds<LED_TYPE, LED_PIN_FIVE, COLOR_ORDER>(leds, NUM_LEDS_FACE_FIVE);
-	FastLED.addLeds<LED_TYPE, LED_PIN_SIX, COLOR_ORDER>(leds, NUM_LEDS_FACE_SIX);
+	FastLED.addLeds<LED_TYPE, LED_PIN_ONE, COLOR_ORDER>(leds_face_one, NUM_LEDS_FACE_ONE);
+  FastLED.addLeds<LED_TYPE, LED_PIN_TWO, COLOR_ORDER>(leds_face_two, NUM_LEDS_FACE_TWO);
+	FastLED.addLeds<LED_TYPE, LED_PIN_THREE, COLOR_ORDER>(leds_face_three, NUM_LEDS_FACE_THREE);
+	FastLED.addLeds<LED_TYPE, LED_PIN_FOUR, COLOR_ORDER>(leds_face_four, NUM_LEDS_FACE_FOUR);
+	FastLED.addLeds<LED_TYPE, LED_PIN_FIVE, COLOR_ORDER>(leds_face_five, NUM_LEDS_FACE_FIVE);
+	FastLED.addLeds<LED_TYPE, LED_PIN_SIX, COLOR_ORDER>(leds_face_six, NUM_LEDS_FACE_SIX);
   // --------------------------------------------------------------------------------------- //
 
   // Set up variables
@@ -57,9 +58,10 @@ void loop() {
   }
 
   // Optionally add glitter
-  if(glitter) addglitter(10);
+  if(glitter) { addglitter(10); }
 
-  if (led_mode > 5) { FastLED.show(); }
+  // Update all strips
+  FastLED.show();
 }
 
 /*
@@ -71,8 +73,8 @@ void loop() {
 void strobe_mode(uint8_t newMode, bool mc){
 
   // If this_ is a *new* mode, clear out LED array.
-  if(mc && newMode != 2) {
-    fill_solid(leds, NUM_LEDS_PER_STRIP, CRGB( 0, 0, 0));
+  if(mc) {
+    clear_all();
     Serial.print("Mode: ");
     Serial.println(led_mode);
     FastLED.show();
@@ -82,12 +84,12 @@ void strobe_mode(uint8_t newMode, bool mc){
 
     // 0 - all off
     case 0:
-      if(mc) { fill_solid(leds, NUM_LEDS_PER_STRIP, CRGB( 0, 0, 0 )); }
+      if(mc) { clear_all(); }
       break;
 
     // 1 - all on, white
     case 1:
-      if(mc) { fill_solid(leds, NUM_LEDS_PER_STRIP, CRGB( 255, 255, 255 )); }
+      if(mc) { this_sat=0; this_bright=255; fill_solid_all(); }
       break;
 
 		// 2 - cube test 1
@@ -129,24 +131,24 @@ void readkeyboard() {
 
     switch(in_byte) {
 
-      // Command: a {hue} - set entire strip to {hue} (0-255)
+      // Command: a {hue} - set all strips to {hue} (0-255)
       case 97:
         led_mode = 0;
-        this_arg = Serial.parseInt();
-        this_arg = constrain(this_arg, 0, 255);
+        this_hue = Serial.parseInt();
+        this_hue = constrain(this_arg, 0, 255);
         Serial.println(this_arg);
-        fill_solid(leds, NUM_LEDS_PER_STRIP, CHSV(this_arg, 255, 255));
+        fill_solid_all();
         break;
 
-      // Command: b {brightness} - set entire strip to {brightness} (0-255)
+      // Command: b {brightness} - set strips to {brightness} (0-255)
       case 98:
         max_bright = Serial.parseInt();
         max_bright = constrain(max_bright, 0, 255);
         Serial.println(max_bright);
-        LEDS.setBrightness(max_bright);
+        FastLED.setBrightness(max_bright);
         break;
 
-      // Command: c - clear strip
+      // Command: c - clear all strips
       case 99:
         Serial.println(" ");
         led_mode = 0;
@@ -158,20 +160,6 @@ void readkeyboard() {
         this_arg = Serial.parseInt();
         this_delay = constrain(this_arg, 0, 255);
         Serial.println(this_delay);
-        break;
-
-      // Command: e {0/1} - increment or decrement the mode
-      case 101:
-        this_arg = Serial.parseInt();
-        if (this_arg) {
-          demo_run = 0;
-          led_mode = (led_mode + 1)%(max_mode + 1);
-        } else {
-          demo_run = 0;
-          led_mode = (led_mode - 1);
-          if (led_mode == 255) led_mode = max_mode;
-        }
-        strobe_mode(led_mode, 1);
         break;
 
       // Command: g - toggle glitter
@@ -199,13 +187,6 @@ void readkeyboard() {
       case 110:
         Serial.println(" ");
         this_dir = !this_dir;
-        break;
-
-      // Command: p {0/1/2} - set demo mode (fixed/sequential/shuffle)
-      case 112:
-        demo_run = Serial.parseInt();
-        demo_run = constrain(demo_run, 0, 2);
-        Serial.println(demo_run);
         break;
 
       // Command: s {saturation} - set saturation to {saturation} (0-255)

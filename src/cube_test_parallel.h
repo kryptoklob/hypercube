@@ -1,13 +1,19 @@
 #ifndef CUBE_TEST_PARALLEL_H
 #define CUBE_TEST_PARALLEL_H
 
-/* Usage - cube_test_parallel(); */
+/* Usage - cube_test_parallel();
+ *
+ * This should clearly identify each "fourth" of a face
+ * Should help determine where the endpoints are
+ *
+ * */
 
 void cube_test_parallel() {
-	// Pulse the brightness
+  // Every strip gets it's own color
+  // The endpoints of each side should pulse a different color than the background
 
-	this_bright=255;
-	this_hue++;
+  // Face 1 (pin 2)
+
 
 	// Strip 1 (pin 2)
 	leds(0, 57) = CHSV(this_hue, 255, 255);

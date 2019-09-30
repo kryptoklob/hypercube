@@ -86,8 +86,34 @@ byte in_byte;
 int this_arg;
 
 // LED Meta Variables
-struct CRGB realleds[NUM_LEDS_MAX];     // The real LED array
-CRGBSet leds(realleds, NUM_LEDS_MAX);   // See RGBSet Reference on FastLED Github
+
+// The actual led data arrays (see RGBSet / CRGBArray reference on FastLED Github)
+CRGBArray<NUM_LEDS_FACE_ONE> leds_face_one;
+CRGBArray<NUM_LEDS_FACE_TWO> leds_face_two;
+CRGBArray<NUM_LEDS_FACE_THREE> leds_face_three;
+CRGBArray<NUM_LEDS_FACE_FOUR> leds_face_four;
+CRGBArray<NUM_LEDS_FACE_FIVE> leds_face_five;
+CRGBArray<NUM_LEDS_FACE_SIX> leds_face_six;
+
+/*
+// The actual led data arrays:
+struct CRGB led_data_face_one[NUM_LEDS_FACE_ONE];
+struct CRGB led_data_face_two[NUM_LEDS_FACE_TWO];
+struct CRGB led_data_face_three[NUM_LEDS_FACE_THREE];
+struct CRGB led_data_face_four[NUM_LEDS_FACE_FOUR];
+struct CRGB led_data_face_five[NUM_LEDS_FACE_FIVE];
+struct CRGB led_data_face_six[NUM_LEDS_FACE_SIX];
+*/
+
+/*
+// CRGBSet arrays for easy led accessing (see RGBSet Reference on FastLED Github)
+CRGBSet leds_face_one(led_data_face_one, NUM_LEDS_FACE_ONE);
+CRGBSet leds_face_two(led_data_face_two, NUM_LEDS_FACE_TWO);
+CRGBSet leds_face_three(led_data_face_three, NUM_LEDS_FACE_THREE);
+CRGBSet leds_face_four(led_data_face_four, NUM_LEDS_FACE_FOUR);
+CRGBSet leds_face_five(led_data_face_five, NUM_LEDS_FACE_FIVE);
+CRGBSet leds_face_six(led_data_face_six, NUM_LEDS_FACE_SIX);
+*/
 
 // LED Overall Variables
 uint8_t max_bright  = 255;

@@ -5,36 +5,21 @@
 
 void cube_test() {
 	// Pulse the brightness
-  
+  // Every strip will be red, green, or blue
+
 	if (this_dir == 0) { this_bright+=5; }
   if (this_dir == 1) { this_bright-=5; }
   if (this_bright >= 250) { this_dir = 1; }
   if (this_bright <= 5) { this_dir = 0; }
 
+  fill_solid(leds_face_one, NUM_LEDS_FACE_ONE, CRGB::Red);
+  fill_solid(leds_face_two, NUM_LEDS_FACE_TWO, CRGB::Blue);
+  fill_solid(leds_face_three, NUM_LEDS_FACE_THREE, CRGB::Green);
+  fill_solid(leds_face_four, NUM_LEDS_FACE_FOUR, CRGB::Red);
+  fill_solid(leds_face_five, NUM_LEDS_FACE_FIVE, CRGB::Blue);
+  fill_solid(leds_face_six, NUM_LEDS_FACE_SIX, CRGB::Green);
 
-	// Strip 0 (pin 1)
-	fill_solid(leds, NUM_LEDS_FACE_ONE, CRGB::Blue);
-	FastLED[0].showLeds(this_bright);
-
-	// Strip 1 (pin 2)
-	fill_solid(leds, NUM_LEDS_FACE_TWO, CRGB::Green);
-	FastLED[1].showLeds(this_bright);
-
-	// Strip 2 (pin 3)
-	fill_solid(leds, NUM_LEDS_FACE_THREE, CRGB::Red);
-	FastLED[2].showLeds(this_bright);
-
-	// Strip 3 (pin 4)
-	fill_solid(leds, NUM_LEDS_FACE_FOUR, CRGB::Blue);
-	FastLED[3].showLeds(this_bright);
-
-	// Strip 4 (pin 5)
-	fill_solid(leds, NUM_LEDS_FACE_FIVE, CRGB::Green);
-	FastLED[4].showLeds(this_bright);
-
-	// Strip 5 (pin 6)
-	fill_solid(leds, NUM_LEDS_FACE_SIX, CRGB::Red);
-	FastLED[5].showLeds(this_bright);
+  FastLED.setBrightness(this_bright);
 }
 
 #endif
