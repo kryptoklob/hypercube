@@ -23,7 +23,7 @@ void two_sin() {
   this_hue = this_hue + this_rot;   // Hue rotation is fun for this_wave.
   that_hue = that_hue + that_rot;   // It's also fun for thatwave.
 
-  for (int k=0; k<MIN_NUM_LEDS-1; k++) {
+  for (int k=0; k<NUM_LEDS_MIN-1; k++) {
     // qsub sets a minimum value called this_cutoff.
     // qsub < this_cutoff, then bright = 0, otherwise bright = 256
     int this_bright = qsuba(cubicwave8((k*all_freq)+this_phase), this_cutoff);

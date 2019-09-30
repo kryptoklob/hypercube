@@ -12,8 +12,9 @@ void setup() {
   Useful static variables:
     - NUM_LEDS_FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}
     - NUM_LEDS_FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_SIDE_{ONE,TWO,THREE,FOUR}
-    -
-
+    - FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_SIDE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_{START,END}
+    - NUM_LEDS_MAX
+    _ NUM_LEDS_MIN
 
   **/
 
@@ -37,8 +38,8 @@ void setup() {
   led_mode = STARTMODE;
 
   // Set up circ_noise variables
-  for (long i = 0; i < NUM_LEDS_PER_STRIP; i++) {
-    uint8_t angle = (i * 256) / NUM_LEDS_PER_STRIP;
+  for (long i = 0; i < NUM_LEDS_MIN; i++) {
+    uint8_t angle = (i * 256) / NUM_LEDS_MIN;
     xd[i] = cos8( angle );
     yd[i] = sin8( angle );
   }

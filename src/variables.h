@@ -35,9 +35,6 @@
 #define NUM_LEDS_FACE_FIVE 237
 #define NUM_LEDS_FACE_SIX 232
 
-// Useful so we don't try to write outside of array bounds for symmetric effects
-#define MIN_NUM_LEDS 232
-
 // It's helpful to know which set of leds are on which face AND side
 
 // should add up to NUM_LEDS_FACE_ONE (238)
@@ -149,10 +146,9 @@
 #define FACE_SIX_SIDE_FOUR_END FACE_SIX_SIDE_FOUR_START + NUM_LEDS_FACE_SIX_SIDE_FOUR - 1
 
 // Some useful extra defines here
-#define NUM_LEDS_PER_STRIP 240
-#define NUM_LEDS_MAX 240
+#define NUM_LEDS_MIN 232
+#define NUM_LEDS_MAX 238
 #define STARTMODE 2
-#define STRANDLEN 240
 
 // ---------- RUNTIME VARS ---------- //
 
@@ -193,5 +189,5 @@ uint8_t wave_brightness = 255;    // Brightness of the waves/bars
 int this_phase = 0;               // Standard phase change
 uint8_t all_freq = 32;            // Overall wave frequency
 uint8_t this_cutoff = 192;        // Lower = longer waves, higher = shorter waves
-uint8_t xd[NUM_LEDS_PER_STRIP];   // X-array for 2d coordinates of leds
-uint8_t yd[NUM_LEDS_PER_STRIP];   // Y-array for 2d coordinates of leds
+uint8_t xd[NUM_LEDS_MIN];         // X-array for 2d coordinates of leds
+uint8_t yd[NUM_LEDS_MIN];         // Y-array for 2d coordinates of leds
