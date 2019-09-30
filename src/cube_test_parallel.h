@@ -12,50 +12,93 @@ void cube_test_parallel() {
   // Every strip gets it's own color
   // The endpoints of each side should pulse a different color than the background
 
-  // Face 1 (pin 2)
+  // Set all faces to different colors
+  leds_face_one.fill_solid(CRGB::Red);
+  leds_face_two.fill_solid(CRGB::Green);
+  leds_face_three.fill_solid(CRGB::Blue);
+  leds_face_four.fill_solid(CRGB::Yellow);
+  leds_face_five.fill_solid(CRGB::DarkMagenta);
+  leds_face_six.fill_solid(CRGB::DeepPink);
 
+  // Set the endpoints of each face's sides
 
-	// Strip 1 (pin 2)
-	leds(0, 57) = CHSV(this_hue, 255, 255);
-  leds(58, 117) = CHSV(this_hue+20, 255, 255);
-  leds(118, 178) = CHSV(this_hue+40, 255, 255);
-  leds(178,238) = CHSV(this_hue+60, 255, 255);
-	FastLED[0].showLeds(this_bright);
+  // face one
+  leds_face_one[FACE_ONE_SIDE_ONE_START] = CRGB::Green;
+  leds_face_one[FACE_ONE_SIDE_ONE_END] = CRGB::Green;
 
-	// Strip 2 (pin 3)
-	leds(0, 57) = CHSV(40, 255, 255);
-  leds(58, 117) = CHSV(50, 255, 255);
-  leds(118, 178) = CHSV(60, 255, 255);
-  leds(178,238) = CHSV(70, 255, 255);
-	FastLED[1].showLeds(this_bright);
+  leds_face_one[FACE_ONE_SIDE_TWO_START] = CRGB::Blue;
+  leds_face_one[FACE_ONE_SIDE_TWO_END] = CRGB::Blue;
 
-	// Strip 3 (pin 4)
-	leds(0, 57) = CHSV(80, 255, 255);
-  leds(58, 117) = CHSV(90, 255, 255);
-  leds(118, 178) = CHSV(100, 255, 255);
-  leds(178,232) = CHSV(110, 255, 255);
-	FastLED[2].showLeds(this_bright);
+  leds_face_one[FACE_ONE_SIDE_THREE_START] = CRGB::Green;
+  leds_face_one[FACE_ONE_SIDE_THREE_END] = CRGB::Green;
 
-	// Strip 4 (pin 5)
-	leds(0, 57) = CHSV(120, 255, 255);
-  leds(58, 117) = CHSV(130, 255, 255);
-  leds(118, 178) = CHSV(140, 255, 255);
-  leds(178,236) = CHSV(150, 255, 255);
-	FastLED[3].showLeds(this_bright);
+  leds_face_one[FACE_ONE_SIDE_FOUR_START] = CRGB::Blue;
+  leds_face_two[FACE_ONE_SIDE_FOUR_END] = CRGB::Blue;
 
-	// Strip 5 (pin 6)
-	leds(0, 57) = CHSV(160, 255, 255);
-  leds(58, 117) = CHSV(170, 255, 255);
-  leds(118, 178) = CHSV(180, 255, 255);
-  leds(178,237) = CHSV(190, 255, 255);
-	FastLED[4].showLeds(this_bright);
+  // face two
+  leds_face_two[FACE_TWO_SIDE_ONE_START] = CRGB::Red;
+  leds_face_two[FACE_TWO_SIDE_ONE_END] = CRGB::Red;
 
-	// Strip 6 (pin 7)
-	leds(0, 57) = CHSV(200, 255, 255);
-  leds(58, 117) = CHSV(210, 255, 255);
-  leds(118, 178) = CHSV(220, 255, 255);
-  leds(178,232) = CHSV(230, 255, 255);
-	FastLED[5].showLeds(this_bright);
+  leds_face_two[FACE_TWO_SIDE_TWO_START] = CRGB::Blue;
+  leds_face_two[FACE_TWO_SIDE_TWO_END] = CRGB::Blue;
+
+  leds_face_two[FACE_TWO_SIDE_THREE_START] = CRGB::Red;
+  leds_face_two[FACE_TWO_SIDE_THREE_END] = CRGB::Red;
+
+  leds_face_two[FACE_TWO_SIDE_FOUR_START] = CRGB::Blue;
+  leds_face_two[FACE_TWO_SIDE_FOUR_END] = CRGB::Blue;
+
+  // face three
+  leds_face_three[FACE_THREE_SIDE_ONE_START] = CRGB::Green;
+  leds_face_three[FACE_THREE_SIDE_ONE_END] = CRGB::Green;
+
+  leds_face_three[FACE_THREE_SIDE_TWO_START] = CRGB::Red;
+  leds_face_three[FACE_THREE_SIDE_TWO_END] = CRGB::Red;
+
+  leds_face_three[FACE_THREE_SIDE_THREE_START] = CRGB::Green;
+  leds_face_three[FACE_THREE_SIDE_THREE_END] = CRGB::Green;
+
+  leds_face_three[FACE_THREE_SIDE_FOUR_START] = CRGB::Red;
+  leds_face_three[FACE_THREE_SIDE_FOUR_END] = CRGB::Red;
+
+  // face four
+  leds_face_four[FACE_FOUR_SIDE_ONE_START] = CRGB::Green;
+  leds_face_four[FACE_FOUR_SIDE_ONE_END] = CRGB::Green;
+
+  leds_face_four[FACE_FOUR_SIDE_TWO_START] = CRGB::Blue;
+  leds_face_four[FACE_FOUR_SIDE_TWO_END] = CRGB::Blue;
+
+  leds_face_four[FACE_FOUR_SIDE_THREE_START] = CRGB::Green;
+  leds_face_four[FACE_FOUR_SIDE_THREE_END] = CRGB::Green;
+
+  leds_face_four[FACE_FOUR_SIDE_FOUR_START] = CRGB::Blue;
+  leds_face_four[FACE_FOUR_SIDE_FOUR_END] = CRGB::Blue;
+
+  // face five
+  leds_face_five[FACE_FIVE_SIDE_ONE_START] = CRGB::Green;
+  leds_face_five[FACE_FIVE_SIDE_ONE_END] = CRGB::Green;
+
+  leds_face_five[FACE_FIVE_SIDE_TWO_START] = CRGB::Blue;
+  leds_face_five[FACE_FIVE_SIDE_TWO_END] = CRGB::Blue;
+
+  leds_face_five[FACE_FIVE_SIDE_THREE_START] = CRGB::Green;
+  leds_face_five[FACE_FIVE_SIDE_THREE_END] = CRGB::Green;
+
+  leds_face_five[FACE_FIVE_SIDE_FOUR_START] = CRGB::Blue;
+  leds_face_five[FACE_FIVE_SIDE_FOUR_END] = CRGB::Blue;
+
+  // face six
+  leds_face_six[FACE_SIX_SIDE_ONE_START] = CRGB::Green;
+  leds_face_six[FACE_SIX_SIDE_ONE_END] = CRGB::Green;
+
+  leds_face_six[FACE_SIX_SIDE_TWO_START] = CRGB::Blue;
+  leds_face_six[FACE_SIX_SIDE_TWO_END] = CRGB::Blue;
+
+  leds_face_six[FACE_SIX_SIDE_THREE_START] = CRGB::Green;
+  leds_face_six[FACE_SIX_SIDE_THREE_END] = CRGB::Green;
+
+  leds_face_six[FACE_SIX_SIDE_FOUR_START] = CRGB::Blue;
+  leds_face_six[FACE_SIX_SIDE_FOUR_END] = CRGB::Blue;
 }
 
 #endif
