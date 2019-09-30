@@ -174,16 +174,6 @@ void readkeyboard() {
         strobe_mode(led_mode, 1);
         break;
 
-      // Command: f {palette_number} - set the current palette
-      case 102:
-        demo_run = 0;
-        palette_change = 0;
-        this_arg = Serial.parseInt();
-        g_current_palette_number = this_arg % g_gradient_palette_count;
-        target_palette = g_gradient_palettes[g_current_palette_number];
-        Serial.println(g_current_palette_number);
-        break;
-
       // Command: g - toggle glitter
       case 103:
         glitter = !glitter;
@@ -197,18 +187,8 @@ void readkeyboard() {
         Serial.println(this_hue);
         break;
 
-      // Command: i {hue} - set similar pallete with selected hue {hue} (0-255)
-      case 105:
-        palette_change = 0;
-        this_arg = Serial.parseInt();
-        this_hue = constrain(this_arg, 0, 255);
-        Serial.println(this_hue);
-        SetupMySimilar4Palette();
-        break;
-
       // Command: m {mode} - select mode {mode} (0-255)
       case 109:
-	old_mode = led_mode;
         led_mode = Serial.parseInt();
         led_mode = constrain(led_mode, 0, max_mode);
         Serial.println(led_mode);
@@ -233,13 +213,6 @@ void readkeyboard() {
         this_arg = Serial.parseInt();
         this_sat = constrain(this_arg, 0, 255);
         Serial.println(this_sat);
-        break;
-
-      // Command: t {0/1/2/3} - set palette mode (fixed/4similar/random4/random16)
-      case 116:
-        this_arg = Serial.parseInt();
-        palette_change = constrain(this_arg, 0, 3);
-        Serial.println(palette_change);
         break;
 
       // Command: w - write current mode to EEPROM
