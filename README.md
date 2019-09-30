@@ -1,6 +1,6 @@
-# h y p e r c u b e
+# h y p e r c u b e  [[embrace the virtual simulation]]
 
-Alchemy 2019 (and beyond) Spectral Subverse Art Project.
+Alchemy 2019 (and beyond) Spectral Subverse Art Project
 
 ## Quick Info:
 
