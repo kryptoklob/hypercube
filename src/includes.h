@@ -11,3 +11,4 @@
 #include "routines/two_sin.h"
 #include "routines/cube_test.h"
 #include "routines/cube_test_parallel.h"
+#include "routines/pulse_sides.h"

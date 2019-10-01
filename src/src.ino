@@ -1,4 +1,4 @@
-#include "includes.h"
+ #include "includes.h"
 
 void setup() {
   // Set up serial connection
@@ -61,8 +61,15 @@ void loop() {
     strobe_mode(led_mode, 0);
   }
 
+	// Cycle through the modes every 60 seconds
+	EVERY_N_SECONDS(60) {
+		led_mode++;
+		if (led_mode > 6) { led_mode = 4;}
+		strobe_mode(led_mode, 1);
+	}
+
   // Optionally add glitter
-  if(glitter) { addglitter(10); }
+  if(glitter) { addglitter(250); }
 
   // Update all strips
   FastLED.show();
@@ -111,6 +118,18 @@ void strobe_mode(uint8_t newMode, bool mc){
     case 4:
  			if(mc) { this_delay = 0; this_dir = 1; this_rot = 2; this_diff = 3; }
 			rainbow_march();
+			break;
+
+		// 5 - sine waves with colors different
+		case 5:
+			if(mc) { FastLED.setBrightness(255); all_freq=2; this_delay = 0; this_dir = 0; this_rot = 2; this_cutoff = 75; this_speed=0; this_diff=0; this_phase=0;}
+			two_sin();
+			break;
+
+		// 6 - quickly pulse each side
+		case 6:
+			if(mc) { FastLED.setBrightness(255); this_phase = 0;}
+			pulse_sides();
 			break;
   }
 }
