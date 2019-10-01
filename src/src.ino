@@ -44,6 +44,9 @@ void setup() {
     yd[i] = sin8( angle );
   }
 
+	// Set brightness
+	FastLED.setBrightness(max_bright);
+
   // Init first mode
   strobe_mode(led_mode, STARTMODE);
 }
@@ -90,7 +93,7 @@ void strobe_mode(uint8_t newMode, bool mc){
 
     // 1 - all on, white
     case 1:
-      if(mc) { this_sat=0; this_bright=255; fill_solid_all(); }
+      if(mc) { this_sat=0; this_bright=max_bright; fill_solid_all(); }
       break;
 
 		// 2 - cube test 1
@@ -100,6 +103,7 @@ void strobe_mode(uint8_t newMode, bool mc){
 
 		// 3 - cube test 2
 		case 3:
+			FastLED.setBrightness(255);
 			cube_test_parallel();
 			break;
 

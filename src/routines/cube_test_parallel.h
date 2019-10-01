@@ -17,8 +17,8 @@ void cube_test_parallel() {
   leds_face_two.fill_solid(CRGB::Green);
   leds_face_three.fill_solid(CRGB::Blue);
   leds_face_four.fill_solid(CRGB::Yellow);
-  leds_face_five.fill_solid(CRGB::DarkMagenta);
-  leds_face_six.fill_solid(CRGB::DeepPink);
+  leds_face_five.fill_solid(CRGB::Aqua);
+  leds_face_six.fill_solid(CRGB::Aquamarine);
 
   // Set the endpoints of each face's sides
 
@@ -33,7 +33,7 @@ void cube_test_parallel() {
   leds_face_one[FACE_ONE_SIDE_THREE_END] = CRGB::Green;
 
   leds_face_one[FACE_ONE_SIDE_FOUR_START] = CRGB::Blue;
-  leds_face_two[FACE_ONE_SIDE_FOUR_END] = CRGB::Blue;
+  leds_face_one[FACE_ONE_SIDE_FOUR_END] = CRGB::Blue;
 
   // face two
   leds_face_two[FACE_TWO_SIDE_ONE_START] = CRGB::Red;
@@ -65,14 +65,14 @@ void cube_test_parallel() {
   leds_face_four[FACE_FOUR_SIDE_ONE_START] = CRGB::Green;
   leds_face_four[FACE_FOUR_SIDE_ONE_END] = CRGB::Green;
 
-  leds_face_four[FACE_FOUR_SIDE_TWO_START] = CRGB::Blue;
-  leds_face_four[FACE_FOUR_SIDE_TWO_END] = CRGB::Blue;
+  leds_face_four[FACE_FOUR_SIDE_TWO_START] = CRGB::Red;
+  leds_face_four[FACE_FOUR_SIDE_TWO_END] = CRGB::Red;
 
   leds_face_four[FACE_FOUR_SIDE_THREE_START] = CRGB::Green;
   leds_face_four[FACE_FOUR_SIDE_THREE_END] = CRGB::Green;
 
-  leds_face_four[FACE_FOUR_SIDE_FOUR_START] = CRGB::Blue;
-  leds_face_four[FACE_FOUR_SIDE_FOUR_END] = CRGB::Blue;
+  leds_face_four[FACE_FOUR_SIDE_FOUR_START] = CRGB::Red;
+  leds_face_four[FACE_FOUR_SIDE_FOUR_END] = CRGB::Red;
 
   // face five
   leds_face_five[FACE_FIVE_SIDE_ONE_START] = CRGB::Green;
@@ -91,14 +91,14 @@ void cube_test_parallel() {
   leds_face_six[FACE_SIX_SIDE_ONE_START] = CRGB::Green;
   leds_face_six[FACE_SIX_SIDE_ONE_END] = CRGB::Green;
 
-  leds_face_six[FACE_SIX_SIDE_TWO_START] = CRGB::Blue;
-  leds_face_six[FACE_SIX_SIDE_TWO_END] = CRGB::Blue;
+  leds_face_six[FACE_SIX_SIDE_TWO_START] = CRGB::Red;
+  leds_face_six[FACE_SIX_SIDE_TWO_END] = CRGB::Red;
 
   leds_face_six[FACE_SIX_SIDE_THREE_START] = CRGB::Green;
   leds_face_six[FACE_SIX_SIDE_THREE_END] = CRGB::Green;
 
-  leds_face_six[FACE_SIX_SIDE_FOUR_START] = CRGB::Blue;
-  leds_face_six[FACE_SIX_SIDE_FOUR_END] = CRGB::Blue;
+  leds_face_six[FACE_SIX_SIDE_FOUR_START] = CRGB::Red;
+  leds_face_six[FACE_SIX_SIDE_FOUR_END] = CRGB::Red;
 }
 
 #endif

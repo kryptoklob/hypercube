@@ -28,12 +28,12 @@
 #define LED_TYPE WS2812B
 
 // Six faces, each with nominally 240 leds, actual numbers vary slightly
-#define NUM_LEDS_FACE_ONE 238
-#define NUM_LEDS_FACE_TWO 238
-#define NUM_LEDS_FACE_THREE 232
-#define NUM_LEDS_FACE_FOUR 236
-#define NUM_LEDS_FACE_FIVE 237
-#define NUM_LEDS_FACE_SIX 232
+#define NUM_LEDS_FACE_ONE 238 	// tested & accurate 	// red in testing mode 3
+#define NUM_LEDS_FACE_TWO 237 	// tested & accurate	// green in testing mode 3
+#define NUM_LEDS_FACE_THREE 237 // tested & accurate	// blue in testing mode 3
+#define NUM_LEDS_FACE_FOUR 237 	// tested & accurate	// yellow in testing mode 3
+#define NUM_LEDS_FACE_FIVE 232 	// tested & accurate	// aqua in testing mode 3
+#define NUM_LEDS_FACE_SIX 233 	// tested & accurate	// aquamarine in testing mode 3
 
 // It's helpful to know which set of leds are on which face AND side
 
@@ -55,11 +55,11 @@
 #define FACE_ONE_SIDE_FOUR_START NUM_LEDS_FACE_ONE_SIDE_ONE + NUM_LEDS_FACE_ONE_SIDE_TWO + NUM_LEDS_FACE_ONE_SIDE_THREE
 #define FACE_ONE_SIDE_FOUR_END FACE_ONE_SIDE_FOUR_START + NUM_LEDS_FACE_ONE_SIDE_FOUR - 1
 
-// should add up to NUM_LEDS_FACE_TWO (238)
-#define NUM_LEDS_FACE_TWO_SIDE_ONE 58
+// should add up to NUM_LEDS_FACE_TWO (237)
+#define NUM_LEDS_FACE_TWO_SIDE_ONE 59
 #define NUM_LEDS_FACE_TWO_SIDE_TWO 60
-#define NUM_LEDS_FACE_TWO_SIDE_THREE 60
-#define NUM_LEDS_FACE_TWO_SIDE_FOUR 60
+#define NUM_LEDS_FACE_TWO_SIDE_THREE 59
+#define NUM_LEDS_FACE_TWO_SIDE_FOUR 59
 
 #define FACE_TWO_SIDE_ONE_START 0
 #define FACE_TWO_SIDE_ONE_END NUM_LEDS_FACE_TWO_SIDE_ONE - 1
@@ -73,8 +73,8 @@
 #define FACE_TWO_SIDE_FOUR_START NUM_LEDS_FACE_TWO_SIDE_ONE + NUM_LEDS_FACE_TWO_SIDE_TWO + NUM_LEDS_FACE_TWO_SIDE_THREE
 #define FACE_TWO_SIDE_FOUR_END FACE_TWO_SIDE_FOUR_START + NUM_LEDS_FACE_TWO_SIDE_FOUR - 1
 
-// should add up to NUM_LEDS_FACE_THREE (232)
-#define NUM_LEDS_FACE_THREE_SIDE_ONE 52
+// should add up to NUM_LEDS_FACE_THREE (237)
+#define NUM_LEDS_FACE_THREE_SIDE_ONE 57
 #define NUM_LEDS_FACE_THREE_SIDE_TWO 60
 #define NUM_LEDS_FACE_THREE_SIDE_THREE 60
 #define NUM_LEDS_FACE_THREE_SIDE_FOUR 60
@@ -91,11 +91,11 @@
 #define FACE_THREE_SIDE_FOUR_START NUM_LEDS_FACE_THREE_SIDE_ONE + NUM_LEDS_FACE_THREE_SIDE_TWO + NUM_LEDS_FACE_THREE_SIDE_THREE
 #define FACE_THREE_SIDE_FOUR_END FACE_THREE_SIDE_FOUR_START + NUM_LEDS_FACE_THREE_SIDE_FOUR - 1
 
-// should add up to NUM_LEDS_FACE_FOUR (236)
-#define NUM_LEDS_FACE_FOUR_SIDE_ONE 54
+// should add up to NUM_LEDS_FACE_FOUR (237)
+#define NUM_LEDS_FACE_FOUR_SIDE_ONE 58
 #define NUM_LEDS_FACE_FOUR_SIDE_TWO 60
 #define NUM_LEDS_FACE_FOUR_SIDE_THREE 60
-#define NUM_LEDS_FACE_FOUR_SIDE_FOUR 60
+#define NUM_LEDS_FACE_FOUR_SIDE_FOUR 59
 
 #define FACE_FOUR_SIDE_ONE_START 0
 #define FACE_FOUR_SIDE_ONE_END NUM_LEDS_FACE_FOUR_SIDE_ONE - 1
@@ -109,11 +109,11 @@
 #define FACE_FOUR_SIDE_FOUR_START NUM_LEDS_FACE_FOUR_SIDE_ONE + NUM_LEDS_FACE_FOUR_SIDE_TWO + NUM_LEDS_FACE_FOUR_SIDE_THREE
 #define FACE_FOUR_SIDE_FOUR_END FACE_FOUR_SIDE_FOUR_START + NUM_LEDS_FACE_FOUR_SIDE_FOUR - 1
 
-// should add up to NUM_LEDS_FACE_FIVE (237)
+// should add up to NUM_LEDS_FACE_FIVE (232)
 #define NUM_LEDS_FACE_FIVE_SIDE_ONE 57
-#define NUM_LEDS_FACE_FIVE_SIDE_TWO 60
-#define NUM_LEDS_FACE_FIVE_SIDE_THREE 60
-#define NUM_LEDS_FACE_FIVE_SIDE_FOUR 60
+#define NUM_LEDS_FACE_FIVE_SIDE_TWO 59
+#define NUM_LEDS_FACE_FIVE_SIDE_THREE 58
+#define NUM_LEDS_FACE_FIVE_SIDE_FOUR 58
 
 #define FACE_FIVE_SIDE_ONE_START 0
 #define FACE_FIVE_SIDE_ONE_END NUM_LEDS_FACE_FIVE_SIDE_ONE - 1
@@ -127,11 +127,11 @@
 #define FACE_FIVE_SIDE_FOUR_START NUM_LEDS_FACE_FIVE_SIDE_ONE + NUM_LEDS_FACE_FIVE_SIDE_TWO + NUM_LEDS_FACE_FIVE_SIDE_THREE
 #define FACE_FIVE_SIDE_FOUR_END FACE_FIVE_SIDE_FOUR_START + NUM_LEDS_FACE_FIVE_SIDE_FOUR - 1
 
-// should add up to NUM_LEDS_FACE_SIX (232)
-#define NUM_LEDS_FACE_SIX_SIDE_ONE 58
-#define NUM_LEDS_FACE_SIX_SIDE_TWO 60
-#define NUM_LEDS_FACE_SIX_SIDE_THREE 60
-#define NUM_LEDS_FACE_SIX_SIDE_FOUR 60
+// should add up to NUM_LEDS_FACE_SIX (233)
+#define NUM_LEDS_FACE_SIX_SIDE_ONE 57
+#define NUM_LEDS_FACE_SIX_SIDE_TWO 59
+#define NUM_LEDS_FACE_SIX_SIDE_THREE 59
+#define NUM_LEDS_FACE_SIX_SIDE_FOUR 58
 
 #define FACE_SIX_SIDE_ONE_START 0
 #define FACE_SIX_SIDE_ONE_END NUM_LEDS_FACE_SIX_SIDE_ONE - 1
@@ -148,7 +148,7 @@
 // Some useful extra defines here
 #define NUM_LEDS_MIN 232
 #define NUM_LEDS_MAX 238
-#define STARTMODE 2
+#define STARTMODE 3
 
 // ---------- RUNTIME VARS ---------- //
 
@@ -167,13 +167,13 @@ CRGBArray<NUM_LEDS_FACE_FIVE> leds_face_five;
 CRGBArray<NUM_LEDS_FACE_SIX> leds_face_six;
 
 // LED Overall Variables
-uint8_t max_bright  = 255;
+uint8_t max_bright  = 170;
 uint8_t max_mode    = 100;
 uint8_t led_mode;
 
 // LED Routine/Shared Variables
 bool    glitter         = 0;      // Glitter flag
-uint8_t this_bright     = 255;    // Standard brightness
+uint8_t this_bright     = 170;    // Standard brightness
 uint8_t this_delay      = 0;      // Standard delay
 uint8_t this_diff       = 1;      // Standard index jump
 uint8_t this_dir        = 0;      // Standard direction

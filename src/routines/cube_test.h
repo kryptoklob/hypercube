@@ -9,7 +9,7 @@ void cube_test() {
 
 	if (this_dir == 0) { this_bright+=5; }
   if (this_dir == 1) { this_bright-=5; }
-  if (this_bright >= 250) { this_dir = 1; }
+  if (this_bright >= max_bright-5) { this_dir = 1; }
   if (this_bright <= 5) { this_dir = 0; }
 
   fill_solid(leds_face_one, NUM_LEDS_FACE_ONE, CRGB::Red);
