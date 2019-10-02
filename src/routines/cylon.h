@@ -12,8 +12,8 @@ void cylon() {
 	if (this_dir == 0) { this_phase++; }
 	else { this_phase--; }
 
-	if (this_phase >= NUM_LEDS_MIN/4 - 2) { this_dir = !this_dir; }
-	if (this_phase == 0) { this_dir = !this_dir; }
+	if (this_phase >= NUM_LEDS_MIN/4 - 3) { this_dir = !this_dir; }
+	if (this_phase <= 3) { this_dir = !this_dir; }
 
 	// bounce back and forth between the start and the end
 	leds_face_one[this_phase] = CHSV(this_hue, 255, 255);

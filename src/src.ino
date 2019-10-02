@@ -61,8 +61,8 @@ void loop() {
     strobe_mode(led_mode, 0);
   }
 
-	// Cycle through the modes every 600 seconds
-	EVERY_N_SECONDS(180) {
+	// Cycle through the modes every 120 seconds
+	EVERY_N_SECONDS(120) {
 		led_mode++;
 		if (led_mode > 10) { led_mode = 4;}
 		strobe_mode(led_mode, 1);
@@ -140,19 +140,19 @@ void strobe_mode(uint8_t newMode, bool mc){
 
 		// 8 - self-destruct
 		case 8:
-			if(mc) { FastLED.setBrightness(255); this_speed = 1; this_delay=0; this_phase=0; }
+			if(mc) { FastLED.setBrightness(255); this_speed = 1; this_delay=0; that_delay=2000; this_phase=0; }
 			self_destruct();
 			break;
 
 		// 9 - cylon with lots of fade
 		case 9:
-			if(mc) { FastLED.setBrightness(255); that_fade = 32; this_delay = 0; }
+			if(mc) { FastLED.setBrightness(255); this_hue=0; this_delay=0; this_phase=5; that_fade = 32; this_delay = 0; this_dir = 0; }
 			cylon();
 			break;
 
 		// 10 - cylon with less fade
 		case 10:
-			if(mc) { FastLED.setBrightness(255); that_fade = 7; this_delay = 0;}
+			if(mc) { FastLED.setBrightness(255); this_hue = 0; this_delay = 0; this_phase=5; that_fade = 7; this_delay = 0; this_dir=0;}
 			cylon();
 			break;
   }
