@@ -61,10 +61,10 @@ void loop() {
     strobe_mode(led_mode, 0);
   }
 
-	// Cycle through the modes every 60 seconds
-	EVERY_N_SECONDS(60) {
+	// Cycle through the modes every 600 seconds
+	EVERY_N_SECONDS(180) {
 		led_mode++;
-		if (led_mode > 6) { led_mode = 4;}
+		if (led_mode > 10) { led_mode = 4;}
 		strobe_mode(led_mode, 1);
 	}
 
@@ -116,20 +116,44 @@ void strobe_mode(uint8_t newMode, bool mc){
 
     // 4 - rainbow march with narrow waves
     case 4:
- 			if(mc) { this_delay = 0; this_dir = 1; this_rot = 2; this_diff = 3; }
+ 			if(mc) { FastLED.setBrightness(255); this_delay = 0; this_dir = 1; this_rot = 2; this_diff = 3; }
 			rainbow_march();
 			break;
 
-		// 5 - sine waves with colors different
+		// 5 - sine waves with colors same
 		case 5:
-			if(mc) { FastLED.setBrightness(255); all_freq=2; this_delay = 0; this_dir = 0; this_rot = 2; this_cutoff = 75; this_speed=0; this_diff=0; this_phase=0;}
-			two_sin();
+			if(mc) { FastLED.setBrightness(255); all_freq=2; this_delay = 0; this_dir = 0; this_rot = 2; this_cutoff = 75; this_speed=5; this_diff=0; this_phase=0;}
+			one_sin();
 			break;
 
-		// 6 - quickly pulse each side
+		// 6 - sine waves with colors different
 		case 6:
-			if(mc) { FastLED.setBrightness(255); this_phase = 0;}
+			if(mc) { FastLED.setBrightness(255); all_freq=2; this_delay = 0; this_dir = 0; this_rot = 2; this_cutoff = 75; this_speed=5; this_diff=30; this_phase=0;}
+			one_sin();
+			break;
+
+		// 7 - slowly pulse each side
+		case 7:
+			if(mc) { FastLED.setBrightness(255); this_index = 0; this_dir=0; this_hue = 0; this_bright=255; this_phase = 0; this_delay = 0;}
 			pulse_sides();
+			break;
+
+		// 8 - self-destruct
+		case 8:
+			if(mc) { FastLED.setBrightness(255); this_speed = 1; this_delay=0; this_phase=0; }
+			self_destruct();
+			break;
+
+		// 9 - cylon with lots of fade
+		case 9:
+			if(mc) { FastLED.setBrightness(255); that_fade = 32; this_delay = 0; }
+			cylon();
+			break;
+
+		// 10 - cylon with less fade
+		case 10:
+			if(mc) { FastLED.setBrightness(255); that_fade = 7; this_delay = 0;}
+			cylon();
 			break;
   }
 }

@@ -1,13 +1,13 @@
-#ifndef TWO_SIN_H
-#define TWO_SIN_H
+#ifndef ONE_SIN_H
+#define ONE_SIN_H
 
-/* Usage - two_sin();
+/* Usage - one_sin();
  *
  * Loads of variables to play with
  *
  */
 
-/* two_sin() - two sin waves going back and forth */
+/* one_sin() - a single sine wave going back and forth */
 
 uint8_t that_hue = 140;      	// You can change the starting hue for other wave.
 uint8_t that_rot = 6;        // You can change how quickly the hue rotates for the other wave. Currently 0.
@@ -15,7 +15,7 @@ int8_t that_speed = 3;       // You can change the speed, and use negative value
 int thatphase = 0;          	// Phase change value gets calculated.
 uint8_t that_cutoff = 75;   	// You can change the cutoff value to alter wave length. Lower value = longer wave.
 
-void two_sin() {
+void one_sin() {
 
   if (this_dir == 0) {this_phase += this_speed; thatphase += that_speed;}
   else {this_phase -= this_speed; thatphase -= that_speed;}
@@ -30,12 +30,12 @@ void two_sin() {
 
     // Assign hues & brightness
     // Right now it just sets all arrays to the same thing
-    leds_face_one[k] = CHSV(this_hue, this_sat, this_bright);
-    leds_face_two[k] = CHSV(this_hue, this_sat, this_bright);
-    leds_face_three[k] = CHSV(this_hue, this_sat, this_bright);
-    leds_face_four[k] = CHSV(this_hue, this_sat, this_bright);
-    leds_face_five[k] = CHSV(this_hue, this_sat, this_bright);
-    leds_face_six[k] = CHSV(this_hue, this_sat, this_bright);
+    leds_face_one[k] = CHSV(this_hue, 255, this_bright);
+    leds_face_two[k] = CHSV(this_hue+(this_diff), 255, this_bright);
+    leds_face_three[k] = CHSV(this_hue+(this_diff*2), 255, this_bright);
+    leds_face_four[k] = CHSV(this_hue+(this_diff*3), 255, this_bright);
+    leds_face_five[k] = CHSV(this_hue+(this_diff*4), 255, this_bright);
+    leds_face_six[k] = CHSV(this_hue+(this_diff*5), 255, this_bright);
   }
 }
 

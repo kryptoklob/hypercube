@@ -21,22 +21,22 @@ void pulse_sides() {
 	// is too much to figure out right now, so here's a dumb switch statement:
 	switch (this_index) {
 		case 0:
-			leds_face_one(0, NUM_LEDS_FACE_ONE) = CHSV(this_hue, 255, this_bright);
+			leds_face_one(0, NUM_LEDS_FACE_ONE-1) = CHSV(this_hue, 255, this_bright);
 			break;
 		case 1:
-			leds_face_two(0, NUM_LEDS_FACE_TWO) = CHSV(this_hue, 255, this_bright);
+			leds_face_two(0, NUM_LEDS_FACE_TWO-1) = CHSV(this_hue, 255, this_bright);
 			break;
 		case 2:
-			leds_face_three(0, NUM_LEDS_FACE_THREE) = CHSV(this_hue, 255, this_bright);
+			leds_face_three(0, NUM_LEDS_FACE_THREE-1) = CHSV(this_hue, 255, this_bright);
 			break;
 		case 3:
-			leds_face_four(0, NUM_LEDS_FACE_FOUR) = CHSV(this_hue, 255, this_bright);
+			leds_face_four(0, NUM_LEDS_FACE_FOUR-1) = CHSV(this_hue, 255, this_bright);
 			break;
 		case 4:
-			leds_face_five(0, NUM_LEDS_FACE_FIVE) = CHSV(this_hue, 255, this_bright);
+			leds_face_five(0, NUM_LEDS_FACE_FIVE-1) = CHSV(this_hue, 255, this_bright);
 			break;
 		case 5:
-			leds_face_six(0, NUM_LEDS_FACE_SIX) = CHSV(this_hue, 255, this_bright);
+			leds_face_six(0, NUM_LEDS_FACE_SIX-1) = CHSV(this_hue, 255, this_bright);
 			break;
 	}
 
