@@ -7,25 +7,15 @@ void setup() {
 
   delay(1000);
 
-  /** LED info is contained in variables.h
-
-  Useful static variables:
-    - NUM_LEDS_FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}
-    - NUM_LEDS_FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_SIDE_{ONE,TWO,THREE,FOUR}
-    - FACE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_SIDE_{ONE,TWO,THREE,FOUR,FIVE,SIX}_{START,END}
-    - NUM_LEDS_MAX
-    _ NUM_LEDS_MIN
-
-  **/
-
-
-  // -- Six strips of LEDS, each nominally 240 leds (but slightly less) -------------------- //
-	FastLED.addLeds<LED_TYPE, LED_PIN_ONE, COLOR_ORDER>(leds_face_one, NUM_LEDS_FACE_ONE);
-  FastLED.addLeds<LED_TYPE, LED_PIN_TWO, COLOR_ORDER>(leds_face_two, NUM_LEDS_FACE_TWO);
-	FastLED.addLeds<LED_TYPE, LED_PIN_THREE, COLOR_ORDER>(leds_face_three, NUM_LEDS_FACE_THREE);
-	FastLED.addLeds<LED_TYPE, LED_PIN_FOUR, COLOR_ORDER>(leds_face_four, NUM_LEDS_FACE_FOUR);
-	FastLED.addLeds<LED_TYPE, LED_PIN_FIVE, COLOR_ORDER>(leds_face_five, NUM_LEDS_FACE_FIVE);
-	FastLED.addLeds<LED_TYPE, LED_PIN_SIX, COLOR_ORDER>(leds_face_six, NUM_LEDS_FACE_SIX);
+  // LED info is contained in variables.h
+  // Setup all six strips
+	
+	FastLED.addLeds<LED_TYPE, LED_PIN_ONE, COLOR_ORDER>(leds_face_one, NUM_LEDS_PER_STRIP);
+  FastLED.addLeds<LED_TYPE, LED_PIN_TWO, COLOR_ORDER>(leds_face_two, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_THREE, COLOR_ORDER>(leds_face_three, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_FOUR, COLOR_ORDER>(leds_face_four, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_FIVE, COLOR_ORDER>(leds_face_five, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_SIX, COLOR_ORDER>(leds_face_six, NUM_LEDS_PER_STRIP);
   // --------------------------------------------------------------------------------------- //
 
   // Set up variables
