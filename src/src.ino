@@ -9,13 +9,12 @@ void setup() {
 
   // LED info is contained in variables.h
   // Setup all six strips
-	
-	FastLED.addLeds<LED_TYPE, LED_PIN_ONE, COLOR_ORDER>(leds_face_one, NUM_LEDS_PER_STRIP);
-  FastLED.addLeds<LED_TYPE, LED_PIN_TWO, COLOR_ORDER>(leds_face_two, NUM_LEDS_PER_STRIP);
-	FastLED.addLeds<LED_TYPE, LED_PIN_THREE, COLOR_ORDER>(leds_face_three, NUM_LEDS_PER_STRIP);
-	FastLED.addLeds<LED_TYPE, LED_PIN_FOUR, COLOR_ORDER>(leds_face_four, NUM_LEDS_PER_STRIP);
-	FastLED.addLeds<LED_TYPE, LED_PIN_FIVE, COLOR_ORDER>(leds_face_five, NUM_LEDS_PER_STRIP);
-	FastLED.addLeds<LED_TYPE, LED_PIN_SIX, COLOR_ORDER>(leds_face_six, NUM_LEDS_PER_STRIP);
+
+	FastLED.addLeds<LED_TYPE, LED_PIN_ONE, COLOR_ORDER>(leds_one, NUM_LEDS_PER_STRIP);
+  FastLED.addLeds<LED_TYPE, LED_PIN_TWO, COLOR_ORDER>(leds_two, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_THREE, COLOR_ORDER>(leds_three, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_FOUR, COLOR_ORDER>(leds_four, NUM_LEDS_PER_STRIP);
+	FastLED.addLeds<LED_TYPE, LED_PIN_FIVE, COLOR_ORDER>(leds_five, NUM_LEDS_PER_STRIP);
   // --------------------------------------------------------------------------------------- //
 
   // Set up variables

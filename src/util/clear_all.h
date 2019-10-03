@@ -6,12 +6,11 @@
 void clear_all() {
 	// Blank out every strip
 
-  fill_solid(leds_face_one, NUM_LEDS_FACE_ONE, CRGB(0,0,0));
-  fill_solid(leds_face_two, NUM_LEDS_FACE_TWO, CRGB(0,0,0));
-  fill_solid(leds_face_three, NUM_LEDS_FACE_THREE, CRGB(0,0,0));
-  fill_solid(leds_face_four, NUM_LEDS_FACE_FOUR, CRGB(0,0,0));
-  fill_solid(leds_face_five, NUM_LEDS_FACE_FIVE, CRGB(0,0,0));
-  fill_solid(leds_face_six, NUM_LEDS_FACE_SIX, CRGB(0,0,0));
+  fill_solid(leds_one, NUM_LEDS_PER_STRIP, CRGB(0,0,0));
+  fill_solid(leds_two, NUM_LEDS_PER_STRIP, CRGB(0,0,0));
+  fill_solid(leds_three, NUM_LEDS_PER_STRIP, CRGB(0,0,0));
+  fill_solid(leds_four, NUM_LEDS_PER_STRIP, CRGB(0,0,0));
+  fill_solid(leds_five, NUM_LEDS_PER_STRIP, CRGB(0,0,0));
 }
 
 #endif

@@ -21,7 +21,6 @@
 #define LED_PIN_THREE 4
 #define LED_PIN_FOUR 5
 #define LED_PIN_FIVE 6
-#define LED_PIN_SIX 7
 
 // LED Meta Defines
 #define COLOR_ORDER GRB // (ws2812b)
@@ -42,12 +41,11 @@ int this_arg;
 // LED Meta Variables
 
 // The actual led data arrays (see RGBSet / CRGBArray reference on FastLED Github)
-CRGBArray<NUM_LEDS_PER_STRIP> leds_face_one;
-CRGBArray<NUM_LEDS_PER_STRIP> leds_face_two;
-CRGBArray<NUM_LEDS_PER_STRIP> leds_face_three;
-CRGBArray<NUM_LEDS_PER_STRIP> leds_face_four;
-CRGBArray<NUM_LEDS_PER_sTRIP> leds_face_five;
-CRGBArray<NUM_LEDS_PER_STRIP> leds_face_six;
+CRGBArray<NUM_LEDS_PER_STRIP> leds_one;
+CRGBArray<NUM_LEDS_PER_STRIP> leds_two;
+CRGBArray<NUM_LEDS_PER_STRIP> leds_three;
+CRGBArray<NUM_LEDS_PER_STRIP> leds_four;
+CRGBArray<NUM_LEDS_PER_sTRIP> leds_five;
 
 // LED Overall Variables
 uint8_t max_bright  = 255;
@@ -70,7 +68,7 @@ uint8_t wave_brightness = 255;    // Brightness of the waves/bars
 
 // Sine-wave routine vars
 int this_phase = 0;               // Standard phase change
-uint8_t all_freq = 2;            // Overall wave frequency
+uint8_t all_freq = 2;            	// Overall wave frequency
 uint8_t this_cutoff = 192;        // Lower = longer waves, higher = shorter waves
-uint8_t xd[NUM_LEDS_MIN];         // X-array for 2d coordinates of leds
-uint8_t yd[NUM_LEDS_MIN];         // Y-array for 2d coordinates of leds
+uint8_t xd[NUM_LEDS_PER_STRIP];   // X-array for 2d coordinates of leds
+uint8_t yd[NUM_LEDS_PER_STRIP];   // Y-array for 2d coordinates of leds
