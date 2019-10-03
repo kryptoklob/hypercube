@@ -11,3 +11,4 @@
 #include "routines/strip_test.h"
 #include "routines/cylon.h"
 #include "routines/all_hue_rotate.h"
+#include "routines/pulse_all.h"

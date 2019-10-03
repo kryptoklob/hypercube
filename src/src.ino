@@ -109,6 +109,18 @@ void strobe_mode(uint8_t newMode, bool mc){
 			rainbow_march();
 			break;
 
+		// 5 - rotate throught the rainbow for all strips
+		case 5:
+			if(mc) { FastLED.setBrightness(255); this_delay=0; }
+			all_hue_rotate();
+			break;
+
+		// 6 - pulse random colors with fade
+		case 6:
+			if(mc) { FastLED.setBrightness(255); }
+			pulse_all();
+			break;
+
   }
 }
 
