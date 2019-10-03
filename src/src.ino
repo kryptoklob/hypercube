@@ -27,8 +27,8 @@ void setup() {
   led_mode = STARTMODE;
 
   // Set up circ_noise variables
-  for (long i = 0; i < NUM_LEDS_MIN; i++) {
-    uint8_t angle = (i * 256) / NUM_LEDS_MIN;
+  for (long i = 0; i < NUM_LEDS_PER_STRIP; i++) {
+    uint8_t angle = (i * 256) / NUM_LEDS_PER_STRIP;
     xd[i] = cos8( angle );
     yd[i] = sin8( angle );
   }
@@ -92,49 +92,13 @@ void strobe_mode(uint8_t newMode, bool mc){
       if(mc) { this_sat=0; this_bright=max_bright; fill_solid_all(); }
       break;
 
-		// 2 - cube test 1
+		// 2 - led strip test
 		case 2:
-			cube_test();
+			strip_test();
 			break;
 
-		// 3 - cube test 2
+		// 3- cylon
 		case 3:
-			FastLED.setBrightness(255);
-			cube_test_parallel();
-			break;
-
-    // 4 - rainbow march with narrow waves
-    case 4:
- 			if(mc) { FastLED.setBrightness(255); this_delay = 0; this_dir = 1; this_rot = 2; this_diff = 3; }
-			rainbow_march();
-			break;
-
-		// 5 - sine waves with colors same
-		case 5:
-			if(mc) { FastLED.setBrightness(255); all_freq=2; this_delay = 0; this_dir = 0; this_rot = 2; this_cutoff = 75; this_speed=5; this_diff=0; this_phase=0;}
-			one_sin();
-			break;
-
-		// 6 - sine waves with colors different
-		case 6:
-			if(mc) { FastLED.setBrightness(255); all_freq=2; this_delay = 0; this_dir = 0; this_rot = 2; this_cutoff = 75; this_speed=5; this_diff=30; this_phase=0;}
-			one_sin();
-			break;
-
-		// 7 - slowly pulse each side
-		case 7:
-			if(mc) { FastLED.setBrightness(255); this_index = 0; this_dir=0; this_hue = 0; this_bright=255; this_phase = 0; this_delay = 0;}
-			pulse_sides();
-			break;
-
-		// 8 - self-destruct
-		case 8:
-			if(mc) { FastLED.setBrightness(255); this_speed = 1; this_delay=0; that_delay=2000; this_phase=0; }
-			self_destruct();
-			break;
-
-		// 9 - cylon
-		case 9:
 			if(mc) { FastLED.setBrightness(255); this_hue=0; this_delay = 10; this_dir = 0; this_index=0; }
 			cylon();
 			break;

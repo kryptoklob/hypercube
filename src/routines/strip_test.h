@@ -12,11 +12,11 @@ void strip_test() {
   if (this_bright >= max_bright-5) { this_dir = 1; }
   if (this_bright <= 5) { this_dir = 0; }
 
-  fill_solid(leds_one, NUM_LEDS_FACE_ONE, CRGB::Red);
-  fill_solid(leds_two, NUM_LEDS_FACE_TWO, CRGB::Blue);
-  fill_solid(leds_three, NUM_LEDS_FACE_THREE, CRGB::Green);
-  fill_solid(leds_four, NUM_LEDS_FACE_FOUR, CRGB::Red);
-  fill_solid(leds_five, NUM_LEDS_FACE_FIVE, CRGB::Blue);
+  fill_solid(leds_one, NUM_LEDS_PER_STRIP, CRGB::Red);
+  fill_solid(leds_two, NUM_LEDS_PER_STRIP, CRGB::Blue);
+  fill_solid(leds_three, NUM_LEDS_PER_STRIP, CRGB::Green);
+  fill_solid(leds_four, NUM_LEDS_PER_STRIP, CRGB::Red);
+  fill_solid(leds_five, NUM_LEDS_PER_STRIP, CRGB::Blue);
 
   FastLED.setBrightness(this_bright);
 }
