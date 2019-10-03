@@ -133,17 +133,12 @@ void strobe_mode(uint8_t newMode, bool mc){
 			self_destruct();
 			break;
 
-		// 9 - cylon with lots of fade
+		// 9 - cylon
 		case 9:
-			if(mc) { FastLED.setBrightness(255); this_hue=0; this_delay=0; this_phase=5; that_fade = 32; this_delay = 0; this_dir = 0; }
+			if(mc) { FastLED.setBrightness(255); this_hue=0; this_delay = 10; this_dir = 0; this_index=0; }
 			cylon();
 			break;
 
-		// 10 - cylon with less fade
-		case 10:
-			if(mc) { FastLED.setBrightness(255); this_hue = 0; this_delay = 0; this_phase=5; that_fade = 7; this_delay = 0; this_dir=0;}
-			cylon();
-			break;
   }
 }
 

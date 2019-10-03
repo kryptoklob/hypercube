@@ -45,7 +45,7 @@ CRGBArray<NUM_LEDS_PER_STRIP> leds_one;
 CRGBArray<NUM_LEDS_PER_STRIP> leds_two;
 CRGBArray<NUM_LEDS_PER_STRIP> leds_three;
 CRGBArray<NUM_LEDS_PER_STRIP> leds_four;
-CRGBArray<NUM_LEDS_PER_sTRIP> leds_five;
+CRGBArray<NUM_LEDS_PER_STRIP> leds_five;
 
 // LED Overall Variables
 uint8_t max_bright  = 255;
