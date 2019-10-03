@@ -9,7 +9,6 @@ void rainbow_march() {
   leds_three.fill_rainbow(this_hue);
   leds_four.fill_rainbow(this_hue);
   leds_five.fill_rainbow(this_hue);
-  leds_six.fill_rainbow(this_hue);
 
   this_hue+= 2;
 }

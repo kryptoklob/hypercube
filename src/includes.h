@@ -8,8 +8,6 @@
 
 // Display routines
 #include "routines/rainbow_march.h"
-//#include "routines/one_sin.h"
 #include "routines/strip_test.h"
-//#include "routines/pulse_sides.h"
-//#include "routines/self_destruct.h"
 #include "routines/cylon.h"
+#include "routines/all_hue_rotate.h"

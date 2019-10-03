@@ -105,7 +105,7 @@ void strobe_mode(uint8_t newMode, bool mc){
 
 		// 4 - rainbow
 		case 4:
-			if(mc) { FastLED.setBrightnesS(255); this_delay=0; }
+			if(mc) { FastLED.setBrightness(255); this_delay=0; }
 			rainbow_march();
 			break;
 
