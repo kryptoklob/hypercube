@@ -97,10 +97,16 @@ void strobe_mode(uint8_t newMode, bool mc){
 			strip_test();
 			break;
 
-		// 3- cylon
+		// 3 - cylon
 		case 3:
-			if(mc) { FastLED.setBrightness(255); this_hue=0; this_delay = 10; this_dir = 0; this_index=0; }
+			if(mc) { FastLED.setBrightness(255); this_hue=0; this_delay=10; this_dir=0; this_index=0; }
 			cylon();
+			break;
+
+		// 4 - rainbow
+		case 4:
+			if(mc) { FastLED.setBrightnesS(255); this_delay=0; }
+			rainbow_march();
 			break;
 
   }
